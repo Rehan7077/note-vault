@@ -1,0 +1,98 @@
+/* EditNote.css */
+
+.edit-note-container {
+  padding: 20px;
+  max-width: 700px;
+  margin: 50px auto;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.edit-note-container h2 {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.edit-note-container input,
+.edit-note-container textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #111;
+  background-color: #fff;
+}
+
+.edit-note-container input:focus,
+.edit-note-container textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.edit-note-container textarea {
+  height: 300px;
+  resize: vertical;
+}
+
+.edit-note-container .button-group {
+  display: flex;
+  gap: 12px;
+}
+
+.edit-note-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.edit-note-container button:hover {
+  transform: translateY(-2px);
+}
+
+.edit-note-container button:active {
+  transform: translateY(0);
+}
+
+.edit-note-container button:first-child {
+  background-color: #007bff;
+  color: white;
+}
+
+.edit-note-container button:first-child:hover {
+  background-color: #0056b3;
+}
+
+.edit-note-container button:last-child {
+  background-color: #dc3545;
+  color: white;
+}
+
+.edit-note-container button:last-child:hover {
+  background-color: #a71d2a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .edit-note-container {
+    padding: 15px;
+  }
+  .edit-note-container textarea {
+    height: 200px;
+  }
+  .edit-note-container button {
+    width: 100%;
+  }
+  .edit-note-container .button-group {
+    flex-direction: column;
+  }
+}

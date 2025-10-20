@@ -1,0 +1,11 @@
+.user-name{
+    display: flex;
+  
+}
+
+@media(max-width:786px){
+    .welcome-title{
+        width: 100%;
+        font-size: 100%
+    }
+}

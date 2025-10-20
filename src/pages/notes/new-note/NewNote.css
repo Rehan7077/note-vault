@@ -1,0 +1,109 @@
+
+.new-note-page {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.new-note-page:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.new-note-page .title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 25px;
+  color: #222;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.error-message {
+  color: #d9534f;
+  background: #f8d7da;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+  border: 1px solid #f5c2c7;
+}
+
+
+.new-note-page .input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.new-note-page .input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+
+.new-note-page textarea {
+  width: 100%;
+  min-height: 250px;
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.new-note-page textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+
+.form-btn {
+  display: block;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.1s ease;
+}
+
+.form-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.form-btn:active {
+  transform: translateY(0);
+}
+
+
+@media (max-width: 768px) {
+  .new-note-page {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  .new-note-page .title {
+    font-size: 22px;
+  }
+
+  .form-btn {
+    font-size: 16px;
+  }
+}

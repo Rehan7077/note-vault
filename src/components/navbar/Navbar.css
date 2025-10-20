@@ -1,0 +1,155 @@
+
+.loading{
+padding: 4px;
+color: black;
+
+}
+nav {
+  height: 70px;
+  background-color: #f5f7fa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  border-bottom: 0.5px solid grey;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  color: #000000;
+  font-size: 170%;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+}
+
+.login-signup {
+  display: flex;
+  gap: 16px;
+}
+
+.login-signup a {
+  text-decoration: none;
+  color: #f5f7fa;
+  background-color: #2563eb;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  font-family: "Nunito", sans-serif;
+}
+
+.login-signup a:hover {
+  background-color: #1d4ed8;
+}
+
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.link {
+  position: relative;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 550;
+  font-size: 15px;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+  font-family: "Nunito", sans-serif;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #2563eb;
+  transition: width 0.4s ease;
+ 
+}
+
+
+.link.active::after {
+  width: 100%;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-menu {
+  position: absolute;
+  top: 45px;
+  right: -10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  z-index: 1000;
+
+}
+
+.profile-menu button {
+  background: none;
+  color: black;
+  border: none;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.profile-menu button:hover {
+  background: #f5f5f5;
+}
+
+
+.profile{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid grey;
+  padding: 5px;
+  border-radius: 15px;
+}
+.user-name{
+color: black;
+}
+.nav-btn{
+  display: flex;
+  gap: 15px;
+}
+
+.poplinks{
+display: flex;
+flex-direction: column;
+padding: 0 10px 0 10px;
+
+}
+.poplinks .links{
+  font-weight: lighter;
+  color: #000000;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+  font-family: "Nunito", sans-serif;
+}
+@media (max-width:786px) {
+
+  .nav-btn{
+    display: none;
+  }
+}
