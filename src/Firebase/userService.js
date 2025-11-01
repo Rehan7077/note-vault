@@ -10,7 +10,12 @@ import {
   getDocs,
   deleteDoc,
   updateDoc,
+  addDoc,
+  serverTimestamp,
+
 } from "firebase/firestore";
+
+
 
 const today = new Date().toDateString();
 
@@ -54,15 +59,43 @@ export const handleLogout = async () => {
   }
 };
 
+export const handlingNote = async (user, title, content) => {
+  const notesRef = collection(db, "notes");
+  const docref =  await addDoc(notesRef, {
+    title,
+    content,
+    createdAt: serverTimestamp(),
+    userId: user.uid,
+  });
+  
+return{
+  id:docref.id,
+  title,
+  content,
+  userId: user.uid,
+  createdAt: new Date()
+
+}
+
+};
 export const getUserNotes = async (user) => {
   try {
-    const q = query(collection(db, "notes"), where("userId", "==", user.uid));
-    const querySnapshot = await getDocs(q);
+    const notesRef = collection(db, "notes");
+    const q = query(notesRef, where("userId", "==", user.uid));
+    const snapshot = await getDocs(q);
 
-    return querySnapshot.docs.map((doc) => ({
+    const notes = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     }));
+
+    notes.sort((a, b) => {
+      const timeA = a.createdAt?.seconds || 0;
+      const timeB = b.createdAt?.seconds || 0;
+      return timeB - timeA; 
+    });
+
+    return notes;
   } catch (err) {
     console.error("Error fetching user notes:", err);
     throw err;

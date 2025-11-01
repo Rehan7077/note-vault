@@ -6,7 +6,7 @@ import { db } from "../Firebase/config";
 import Loader from "../components/loader/Loader";
 
 export const VisitChecker = ({ children }) => {
-  const { user } = useContext(UserContext);
+  const { user, setNoteModal } = useContext(UserContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -21,8 +21,8 @@ export const VisitChecker = ({ children }) => {
           const today = new Date().toDateString();
           const lastVisit = snap.data().lastVisitDate;
 
-          if (lastVisit !== today) {
-            navigate("/newnote");
+          if (lastVisit !== today) { 
+            setNoteModal(true)
             await updateDoc(userRef, { lastVisitDate: today });
           }
         }

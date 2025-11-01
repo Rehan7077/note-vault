@@ -2,12 +2,12 @@ import { Routes, Route } from "react-router-dom";
 import { Landing } from "../pages/Landing/Landing";
 import { Login } from "../pages/Login/Login";
 import { Dashboard } from "../pages/Dashboard/Dashboard";
-import { NewNote } from "../pages/notes/new-note/NewNote";
+import { NewNote } from "../components/new-note/NewNote";
 import { Profile } from "../pages/Profile/Profile";
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 import { Navigate } from "react-router-dom";
-import { AllNotes } from "../pages/notes/all-notes/AllNotes";
+import { AllNotes } from "../pages/all-notes/AllNotes";
 import { EditNote } from "../pages/EditNote/EditNote";
 import Loader from "../components/loader/Loader";
 

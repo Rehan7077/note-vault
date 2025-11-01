@@ -1,9 +1,28 @@
-/* EditNote.css */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  margin-bottom: 10% ;
+}
+
+.slide-in .edit-note-container {
+  animation: slideUp 0.3s ease forwards;
+}
+
+.slide-out .edit-note-container {
+  animation: slideDown 0.3s ease forwards;
+}
 
 .edit-note-container {
   padding: 20px;
   max-width: 700px;
-  margin: 50px auto;
+  width: 90%;
+  margin: 0 auto 50px;
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -72,16 +91,56 @@
   background-color: #0056b3;
 }
 
-.edit-note-container button:last-child {
+.edit-note-container button:nth-child(2) {
   background-color: #dc3545;
   color: white;
 }
 
-.edit-note-container button:last-child:hover {
+.edit-note-container button:nth-child(2):hover {
   background-color: #a71d2a;
 }
 
-/* Responsive */
+.edit-note-container button:last-child {
+  background-color: #6c757d;
+  color: white;
+}
+
+.edit-note-container button:last-child:hover {
+  background-color: #565e64;
+}
+
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
 @media (max-width: 768px) {
   .edit-note-container {
     padding: 15px;
