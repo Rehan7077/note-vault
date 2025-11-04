@@ -3,23 +3,22 @@ import { useContext, useEffect, useState } from "react";
 import { getNoteById, updateNote, deleteNote } from "../../Firebase/userService";
 import { UserContext } from "../../context/userContext";
 
-export const EditNote = ({ noteId }) => {
-  const { setUserNotes, setEditNoteModal } = useContext(UserContext);
+export const EditNote = () => {
+  const { setUserNotes, setEditNoteModal, selectedNoteId } = useContext(UserContext);
   const [note, setNote] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [animateOut, setAnimateOut] = useState(false);
 
   useEffect(() => {
     const fetchNote = async () => {
       try {
-        const fetchedNote = await getNoteById(noteId);
+        const fetchedNote = await getNoteById(selectedNoteId);
         setNote(fetchedNote);
       } catch (err) {
         console.error("Failed to fetch note:", err);
       }
     };
     fetchNote();
-  }, [noteId]);
+  }, [selectedNoteId]);
 
   const handleClose = () => {
     setAnimateOut(true);
@@ -27,17 +26,17 @@ export const EditNote = ({ noteId }) => {
   };
 
   const handleSave = async () => {
-    await updateNote(noteId, note);
+    await updateNote(selectedNoteId, note);
     alert("Note updated successfully!");
     setUserNotes((prev) =>
-      prev.map((n) => (n.id === noteId ? { ...n, ...note } : n))
+      prev.map((n) => (n.id === selectedNoteId ? { ...n, ...note } : n))
     );
     handleClose();
   };
 
   const handleDelete = async () => {
-    await deleteNote(noteId);
-    setUserNotes((prev) => prev.filter((n) => n.id !== noteId));
+    await deleteNote(selectedNoteId);
+    setUserNotes((prev) => prev.filter((n) => n.id !== selectedNoteId));
     alert("Note deleted");
     handleClose();
   };

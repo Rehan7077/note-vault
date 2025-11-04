@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import { Landing } from "../pages/Landing/Landing";
 import { Login } from "../pages/Login/Login";
-import { Dashboard } from "../pages/Dashboard/Dashboard";
+import { Dashboard } from "../pages/dashboard/Dashboard";
 import { NewNote } from "../components/new-note/NewNote";
 import { Profile } from "../pages/Profile/Profile";
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 import { Navigate } from "react-router-dom";
 import { AllNotes } from "../pages/all-notes/AllNotes";
-import { EditNote } from "../pages/EditNote/EditNote";
+
 import Loader from "../components/loader/Loader";
 
 export const AppRouter = () => {
@@ -22,7 +22,7 @@ export const AppRouter = () => {
       <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
       <Route path="/newnote" element={user ? <NewNote /> : <Navigate to="/login" />} />
       <Route path="/allnotes" element={<AllNotes />} />
-      <Route path="/note/:id" element={<EditNote />} />
+ 
     </Routes>
   );
 };

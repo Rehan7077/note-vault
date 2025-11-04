@@ -1,16 +1,14 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import Loader from "../../components/loader/Loader";
 import { SearchBar } from "../../components/searchBar/SearchBar";
 import "./AllNotes.css";
-import { EditNote } from "../editNote/EditNote";
 
 export const AllNotes = () => {
-  const { userNotes, setNoteModal, editNoteModal, setEditNoteModal, loading } = useContext(UserContext);
+  const { userNotes, setNoteModal, setEditNoteModal, setSelectedNoteId, loading } = useContext(UserContext);
   const [filteredNotes, setFilteredNotes] = useState([]);
-  const [selectedNoteId, setSelectedNoteId] = useState(null)
-  const navigate = useNavigate();
+
+
 
   useEffect(() => {
     setFilteredNotes(userNotes);
@@ -19,7 +17,7 @@ export const AllNotes = () => {
   const handleNoteClick = (note) => {
     setSelectedNoteId(note.id)
     setEditNoteModal(true)
-    
+
   };
 
   const handleSearchChange = (searchItem) => {
@@ -39,7 +37,6 @@ export const AllNotes = () => {
             <h1 className="title">All Notes</h1>
             <SearchBar onSearchChange={handleSearchChange} className="search-bar" />
           </div>
-
           {filteredNotes.length > 0 ? (
             <div className="grid-container">
               {filteredNotes.map((note) => (
@@ -71,7 +68,7 @@ export const AllNotes = () => {
           </button>
         </div>
       )}
-      {editNoteModal && <EditNote noteId={selectedNoteId} />}
+
     </div>
   );
 };

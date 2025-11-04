@@ -7,7 +7,7 @@
   align-items: flex-end;
   z-index: 1000;
   animation: fadeIn 0.3s ease;
-  margin-bottom: 10% ;
+  margin-bottom: 10%;
 }
 
 .slide-in .edit-note-container {
@@ -26,7 +26,7 @@
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .edit-note-container h2 {
@@ -108,7 +108,6 @@
 .edit-note-container button:last-child:hover {
   background-color: #565e64;
 }
-
 
 @keyframes slideUp {
   from {

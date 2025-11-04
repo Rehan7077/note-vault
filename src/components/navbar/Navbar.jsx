@@ -4,10 +4,10 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import { handleLogout } from "../../Firebase/userService";
 import { NewNote } from "../new-note/NewNote";
-import { EditNote } from "../../pages/editNote/EditNote";
+import { EditNote } from "../editNote/EditNote";
 
 export const Navbar = () => {
-  const { user, loading, noteModal, setNoteModal, editNoteModal, setEditNoteModal } = useContext(UserContext);
+  const { user, loading, noteModal, setNoteModal, editNoteModal, } = useContext(UserContext);
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
 
@@ -54,17 +54,17 @@ export const Navbar = () => {
                 style={{ width: "30px", borderRadius: "50%", cursor: "pointer" }}
                 onClick={handleProfileClick}
               />
-                <div className={`profile-menu ${showMenu ? "show" : "hide"}`}>
-                  <div className="poplinks">
-                    <button className="links" onClick={() => navigate("/profile")}>
-                      Profile Settings
-                    </button>
-                    <NavLink to="/dashboard" className="links">DashBoard</NavLink>
-                    <NavLink to="/allnotes" className="links">All Notes</NavLink>
-                    <NavLink onClick={handleModal} className="links">New Note</NavLink>
-                    <button className="links" onClick={handleLogoutClick}>Logout</button>
-                  </div>
+              <div className={`profile-menu ${showMenu ? "show" : "hide"}`}>
+                <div className="poplinks">
+                  <button className="links" onClick={() => navigate("/profile")}>
+                    Profile Settings
+                  </button>
+                  <NavLink to="/dashboard" className="links">DashBoard</NavLink>
+                  <NavLink to="/allnotes" className="links">All Notes</NavLink>
+                  <NavLink onClick={handleModal} className="links">New Note</NavLink>
+                  <button className="links" onClick={handleLogoutClick}>Logout</button>
                 </div>
+              </div>
             </div>
           </div>
         ) : (
@@ -75,7 +75,7 @@ export const Navbar = () => {
       </nav>
 
       <NewNote modal={noteModal} setModal={setNoteModal} />
-     
+      {editNoteModal && <EditNote />}
     </div>
   );
 };

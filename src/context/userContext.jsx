@@ -12,6 +12,7 @@ export const UserProvider = ({ children }) => {
   const [editNoteModal, setEditNoteModal] = useState(false)
   const [loading, setLoading] = useState(true);
   const [userNotes, setUserNotes] = useState([]);
+  const [selectedNoteId, setSelectedNoteId] = useState(null)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (users) => {
@@ -51,7 +52,9 @@ export const UserProvider = ({ children }) => {
         noteModal,
         setNoteModal,
         editNoteModal,
-        setEditNoteModal
+        setEditNoteModal,
+        selectedNoteId,
+        setSelectedNoteId
       }}
     >
       {children}

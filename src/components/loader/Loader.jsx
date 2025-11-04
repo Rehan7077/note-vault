@@ -1,13 +1,11 @@
-import './Loader.css'
+import './Loader.css';
+
 const Loader = () => {
   return (
-    <div className="loader-overlay">
-      <h2>Hii, User NoteVault is Loading</h2>
-      <div className="loader">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div className="loader-container">
+      <div className="spinner"></div>
+      <h2>Hii, User</h2>
+      <h3>NoteVault is Loading...</h3>
     </div>
   );
 };

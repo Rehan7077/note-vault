@@ -21,7 +21,7 @@ export const VisitChecker = ({ children }) => {
           const today = new Date().toDateString();
           const lastVisit = snap.data().lastVisitDate;
 
-          if (lastVisit !== today) { 
+          if (lastVisit !== today) {
             setNoteModal(true)
             await updateDoc(userRef, { lastVisitDate: today });
           }
@@ -36,6 +36,6 @@ export const VisitChecker = ({ children }) => {
     checkVisit();
   }, [user, navigate]);
 
-  if (!user || loading) return <Loader/>
-    return children;
+  if (!user || loading) return <Loader />
+  return children;
 };
