@@ -2,10 +2,12 @@ import "./EditNote.css";
 import { useContext, useEffect, useState } from "react";
 import { getNoteById, updateNote, deleteNote } from "../../Firebase/userService";
 import { UserContext } from "../../context/userContext";
+import Loader from "../../components/loader/Loader"; // ✅ Import your loader component
 
 export const EditNote = () => {
   const { setUserNotes, setEditNoteModal, selectedNoteId } = useContext(UserContext);
   const [note, setNote] = useState(null);
+  const [loading, setLoading] = useState(true); // ✅ Added loading state
   const [animateOut, setAnimateOut] = useState(false);
 
   useEffect(() => {
@@ -15,6 +17,8 @@ export const EditNote = () => {
         setNote(fetchedNote);
       } catch (err) {
         console.error("Failed to fetch note:", err);
+      } finally {
+        setLoading(false); // ✅ Loading ends after fetching
       }
     };
     fetchNote();
@@ -41,12 +45,18 @@ export const EditNote = () => {
     handleClose();
   };
 
+  // ✅ Loader while fetching
+  if (loading) return <Loader />;
 
+  // ✅ If still no note after loading
   if (!note) return <p>Note not found.</p>;
 
   return (
-    <div className={`modal-overlay ${animateOut ? "slide-out" : "slide-in"}`} onClick={handleClose}>
-      <div className="edit-note-container">
+    <div
+      className={`modal-overlay ${animateOut ? "slide-out" : "slide-in"}`}
+      onClick={handleClose}
+    >
+      <div className="edit-note-container" onClick={(e) => e.stopPropagation()}>
         <h2>Title</h2>
         <input
           type="text"

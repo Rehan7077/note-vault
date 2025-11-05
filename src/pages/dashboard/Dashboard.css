@@ -1,11 +1,12 @@
-body {
-  overflow-y: hidden;
-}
 .user-name {
   display: flex;
 }
+.dashboard-container {
+  overflow-y: hidden;
+  height: 90vh;
+}
 
-.hero-section {
+.hero-section-dash {
   text-align: center;
   padding: 50px 20px;
   color: #fff;
@@ -14,11 +15,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: hidden;
 }
 
 .welcome-title {
   font-size: 2rem;
   font-weight: 600;
+  margin-top: 13%;
   margin-bottom: 10px;
 }
 .notes-length-title {

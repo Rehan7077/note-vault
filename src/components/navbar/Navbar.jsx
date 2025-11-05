@@ -3,11 +3,9 @@ import "./Navbar.css";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import { handleLogout } from "../../Firebase/userService";
-import { NewNote } from "../new-note/NewNote";
-import { EditNote } from "../editNote/EditNote";
 
 export const Navbar = () => {
-  const { user, loading, noteModal, setNoteModal, editNoteModal, } = useContext(UserContext);
+  const { user, loading, setNoteModal } = useContext(UserContext);
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
 
@@ -35,15 +33,15 @@ export const Navbar = () => {
         {user ? (
           <div className="nav-links">
             <div className="nav-btn">
-              <NavLink to="/dashboard" className="link">
+              <NavLink to="/dashboard" className="nav-link">
                 DashBoard
               </NavLink>
-              <NavLink to="/allnotes" className="link">
+              <NavLink to="/allnotes" className="nav-link">
                 All Notes
               </NavLink>
-              <NavLink onClick={handleModal} className="link">
+              <a onClick={handleModal} className="new-note-btn">
                 New Note
-              </NavLink>
+              </a>
             </div>
 
             <div className="profile">
@@ -73,9 +71,6 @@ export const Navbar = () => {
           </div>
         )}
       </nav>
-
-      <NewNote modal={noteModal} setModal={setNoteModal} />
-      {editNoteModal && <EditNote />}
     </div>
   );
 };

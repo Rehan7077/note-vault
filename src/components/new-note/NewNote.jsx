@@ -5,20 +5,20 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 
 
-export const NewNote = ({ modal, setModal }) => {
-  const { user, setUserNotes } = useContext(UserContext);
+export const NewNote = () => {
+  const { user, setUserNotes, noteModal, setNoteModal } = useContext(UserContext);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [error, setError] = useState("");
   const [animateOut, setAnimateOut] = useState(false);
   const navigate = useNavigate();
 
-  if (!modal) return null;
+  if (!noteModal) return null;
 
   const closeModal = () => {
     setAnimateOut(true);
     setTimeout(() => {
-      setModal(false);
+      setNoteModal(false);
       setAnimateOut(false);
       setTitle("");
       setContent("");
@@ -32,11 +32,11 @@ export const NewNote = ({ modal, setModal }) => {
     if (!content.trim()) return setError("Please write something in your note.");
     setError("");
     try {
-    const newNote =  await handlingNote(user, title.trim(), content.trim());
-      setUserNotes((prev)=>[newNote,...prev]);
+      const newNote = await handlingNote(user, title.trim(), content.trim());
+      setUserNotes((prev) => [newNote, ...prev]);
       closeModal();
       navigate("/allnotes");
-    } catch(err){
+    } catch (err) {
       setError("Failed to save note. Try again.");
       console.log(err)
     }

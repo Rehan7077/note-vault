@@ -16,33 +16,34 @@ export const Dashboard = () => {
   }
   return (
     <VisitChecker>
-      <div className="hero-section">
-        <h2 className="welcome-title">Welcome to NoteVault, {user.name}</h2>
-        {userNotes.length > 0 ? (
-          <>
-            <h3 className="notes-length-title">You have created {userNotes.length} notes</h3>
-            <h2 className="recent-notes-title" >Your recent notes</h2>
-            <div className="recent-notes">
+      <div className="dashboard-container">
+        <div className="hero-section-dash">
+          <h2 className="welcome-title">Welcome to NoteVault, {user.name}</h2>
+          {userNotes.length > 0 ? (
+            <>
+              <h3 className="notes-length-title">You have created {userNotes.length} notes</h3>
+              <h2 className="recent-notes-title" >Your recent notes</h2>
+              <div className="recent-notes">
 
-              {recentNotes.map((note) => (
-                <div className="note-card" key={note.id} onClick={() => handleNoteClick(note.id)} >
-                  <h3>{note.title}</h3>
-                  <p>
-                    {note.content.length > 50
-                      ? note.content.slice(0, 100)
-                      : note.content}
-                  </p>
-                </div>
-              ))}
+                {recentNotes.map((note) => (
+                  <div className="note-card" key={note.id} onClick={() => handleNoteClick(note.id)} >
+                    <h3>{note.title}</h3>
+                    <p>
+                      {note.content.length > 50
+                        ? note.content.slice(0, 100)
+                        : note.content}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className="no-note">
+              <p>You haven't created any notes yet.</p>
+              <button onClick={() => setNoteModal(true)}>Create a note</button>
             </div>
-          </>
-        ) : (
-          <div className="no-note">
-            <p>You haven't created any notes yet.</p>
-            <button onClick={()=>setNoteModal(true)}>Create a note</button>
-          </div>
-
-        )}
+          )}
+        </div>
       </div>
     </VisitChecker>
   );

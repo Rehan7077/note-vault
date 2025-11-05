@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import { Landing } from "../pages/Landing/Landing";
+import { Landing } from "../pages/landing/Landing";
 import { Login } from "../pages/Login/Login";
 import { Dashboard } from "../pages/dashboard/Dashboard";
 import { NewNote } from "../components/new-note/NewNote";
-import { Profile } from "../pages/Profile/Profile";
+import { Profile } from "../pages/profile/Profile";
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 import { Navigate } from "react-router-dom";
@@ -22,7 +22,7 @@ export const AppRouter = () => {
       <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
       <Route path="/newnote" element={user ? <NewNote /> : <Navigate to="/login" />} />
       <Route path="/allnotes" element={<AllNotes />} />
- 
+
     </Routes>
   );
 };

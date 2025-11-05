@@ -4,10 +4,9 @@
   background: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   z-index: 1000;
   animation: fadeIn 0.3s ease;
-  margin-bottom: 10%;
 }
 
 .slide-in .edit-note-container {

@@ -27,7 +27,7 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #007bff; 
+  border: 4px solid #007bff;
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
   margin-bottom: 20px;
 }
@@ -62,7 +62,7 @@ input {
 }
 
 input:focus {
-  border-color: #6a0dad; 
+  border-color: #6a0dad;
   box-shadow: 0 0 5px rgba(106, 13, 173, 0.3);
 }
 
@@ -72,14 +72,14 @@ button {
   font-weight: 600;
   border: none;
   border-radius: 10px;
-  background-color: #007bff; 
+  background-color: #007bff;
   color: #fff;
   cursor: pointer;
   transition: background 0.25s ease, transform 0.1s ease;
 }
 
 button:hover {
-  background-color: #3b47c9; 
+  background-color: #3b47c9;
   transform: scale(1.02);
 }
 

@@ -1,11 +1,9 @@
-
-.loading{
-padding: 4px;
-color: black;
-
+.loading {
+  padding: 4px;
+  color: black;
 }
 nav {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -47,13 +45,13 @@ nav {
   background-color: #1d4ed8;
 }
 
-.nav-links{
+.nav-links {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.link {
+.nav-link {
   position: relative;
   color: #000000;
   text-decoration: none;
@@ -64,7 +62,7 @@ nav {
   font-family: "Nunito", sans-serif;
 }
 
-.link::after {
+.nav-link::after {
   content: "";
   position: absolute;
   left: 0;
@@ -73,11 +71,34 @@ nav {
   width: 0%;
   background-color: #2563eb;
   transition: width 0.4s ease;
- 
 }
 
+.nav-link.active::after {
+  width: 100%;
+}
+.new-note-btn {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 550;
+  font-size: 15px;
+  padding: 8px 0;
+  font-family: "Nunito", sans-serif;
+  cursor: pointer;
+  position: relative;
+}
 
-.link.active::after {
+.new-note-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #2563eb;
+  transition: width 0.4s ease;
+}
+
+.new-note-btn:hover::after {
   width: 100%;
 }
 
@@ -89,12 +110,12 @@ nav {
 }
 .profile-menu {
   position: absolute;
-  top: 45px; 
+  top: 45px;
   right: 0;
   width: 200px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(-10px);
   pointer-events: none;
@@ -128,13 +149,11 @@ nav {
   border-radius: 5px;
 }
 
-
 .profile-menu button:hover {
   background: #f5f5f5;
 }
 
-
-.profile{
+.profile {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -142,21 +161,20 @@ nav {
   padding: 5px;
   border-radius: 15px;
 }
-.user-name{
-color: black;
+.user-name {
+  color: black;
 }
-.nav-btn{
+.nav-btn {
   display: flex;
   gap: 15px;
 }
 
-.poplinks{
-display: flex;
-flex-direction: column;
-padding: 0 10px 0 10px;
-
+.poplinks {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px 0 10px;
 }
-.poplinks .links{
+.poplinks .links {
   font-weight: lighter;
   color: #000000;
   text-decoration: none;
@@ -165,9 +183,9 @@ padding: 0 10px 0 10px;
   transition: color 0.3s ease;
   font-family: "Nunito", sans-serif;
 }
-@media (max-width:786px) {
 
-  .nav-btn{
+@media (max-width: 786px) {
+  .nav-btn {
     display: none;
   }
 }

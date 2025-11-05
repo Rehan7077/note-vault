@@ -5,7 +5,6 @@ import { db, auth } from "../Firebase/config";
 import { getUserNotes } from "../Firebase/userService";
 
 export const UserContext = createContext();
-
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [noteModal, setNoteModal] = useState(false);
@@ -25,7 +24,6 @@ export const UserProvider = ({ children }) => {
 
           const notes = await getUserNotes(users);
           setUserNotes(notes);
-          console.log(notes)
         } else {
           setUser(null);
           setUserNotes([]);

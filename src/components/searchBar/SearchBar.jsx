@@ -1,4 +1,4 @@
-import { useState,useEffect} from "react"
+import { useState, useEffect } from "react"
 import { debounce } from "lodash"
 import "./SearchBar.css"
 
@@ -15,11 +15,11 @@ export const SearchBar = ({ onSearchChange }) => {
     };
 
     useEffect(() => {
-    return () => debounceSearch.cancel();
-  }, []);
+        return () => debounceSearch.cancel();
+    }, []);
 
     return (
-        <input type="text" placeholder="Search notes..." onChange={handleChange} className="search-bar"/>
+        <input type="text" placeholder="Search notes..." onChange={handleChange} className="search-bar" />
     );
 
 };

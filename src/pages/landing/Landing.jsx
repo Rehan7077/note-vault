@@ -9,7 +9,7 @@ export const Landing = () => {
         <h1 className="landing-title">
           Secure Your Thoughts. Anytime, Anywhere.
         </h1>
-        <button className="cta-button" onClick={()=>navigate('./login')}>Get Started</button>
+        <button className="cta-button" onClick={() => navigate('./login')}>Get Started</button>
       </div>
 
       <section className="features-section">
@@ -21,7 +21,7 @@ export const Landing = () => {
               Your data is protected with secure authentication and storage.
             </p>
           </div>
-          <div className="feature-card"> 
+          <div className="feature-card">
             <h3>📱 Accessible Anywhere</h3>
             <p>
               Use NoteVault on mobile, tablet, or desktop – anytime, anywhere.

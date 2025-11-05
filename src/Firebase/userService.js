@@ -12,10 +12,7 @@ import {
   updateDoc,
   addDoc,
   serverTimestamp,
-
 } from "firebase/firestore";
-
-
 
 const today = new Date().toDateString();
 
@@ -61,22 +58,20 @@ export const handleLogout = async () => {
 
 export const handlingNote = async (user, title, content) => {
   const notesRef = collection(db, "notes");
-  const docref =  await addDoc(notesRef, {
+  const docref = await addDoc(notesRef, {
     title,
     content,
     createdAt: serverTimestamp(),
     userId: user.uid,
   });
-  
-return{
-  id:docref.id,
-  title,
-  content,
-  userId: user.uid,
-  createdAt: new Date()
 
-}
-
+  return {
+    id: docref.id,
+    title,
+    content,
+    userId: user.uid,
+    createdAt: new Date(),
+  };
 };
 export const getUserNotes = async (user) => {
   try {
@@ -92,7 +87,7 @@ export const getUserNotes = async (user) => {
     notes.sort((a, b) => {
       const timeA = a.createdAt?.seconds || 0;
       const timeB = b.createdAt?.seconds || 0;
-      return timeB - timeA; 
+      return timeB - timeA;
     });
 
     return notes;

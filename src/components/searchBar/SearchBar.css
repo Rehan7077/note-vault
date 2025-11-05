@@ -1,5 +1,5 @@
-.search-bar{
-  width: 30% ;
+.search-bar {
+  width: 30%;
   color: black;
   padding: 12px 15px;
   margin: 10px 40% 10px;
@@ -8,9 +8,8 @@
   border-radius: 5px;
   outline: none;
   transition: all 0.2s ease;
-
 }
 .search-bar:focus {
-  border-color: #18709d; 
+  border-color: #18709d;
   box-shadow: 0 0 5px rgba(106, 13, 173, 0.3);
 }
