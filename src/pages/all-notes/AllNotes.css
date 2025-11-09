@@ -18,7 +18,7 @@
 }
 
 .search-bar {
-  width: 100%;
+  width: 60%;
   max-width: 400px;
 }
 
@@ -119,6 +119,22 @@
   font-size: 1rem;
   color: #555;
   margin-bottom: 1.5rem;
+}
+.no-results{
+  color: black;
+  font-size: large;
+  text-align: center;
+  animation: smooth 0.2s ease-in-out;
+
+}
+
+@keyframes smooth {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }
 
 .create-note-btn {
