@@ -21,4 +21,4 @@ You can create, edit, and manage your notes easily.
 4. Visit `http://localhost:5173`
 
 ## 🌐 Live Demo
-[Click here to view live project]([https://note-vault-orcin.vercel.app/])
+[Click here to view live project] - https://note-vault-orcin.vercel.app
