@@ -1,17 +1,22 @@
 .form-heading {
   text-align: center;
-  color: rgba(13, 1, 1, 0.304);
-  font-family: "robot", sans-serif;
+  color: rgba(13, 1, 1, 0.7);
+  font-family: "Roboto", sans-serif;
   padding: 10px;
-  transform: translateY(-20px);
+  margin-bottom: 10px;
 }
+
 .form {
-  width: 420px;
-  margin: 50px auto;
+  width: 100%;
+  max-width: 400px;
+  margin: 80px auto;
   padding: 30px;
   background: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .input-group {
@@ -49,6 +54,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -80,4 +86,21 @@ button:hover {
 .divider span {
   color: #666;
   font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: 90%;
+    height: auto;
+    margin: 40px auto;
+    padding: 20px;
+  }
+
+  .form-heading {
+    font-size: 1.4rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+  }
 }

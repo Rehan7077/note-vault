@@ -188,4 +188,7 @@ nav {
   .nav-btn {
     display: none;
   }
+  .profile-menu{
+    width: 150px;
+  }
 }

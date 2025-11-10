@@ -2,13 +2,15 @@ import "./EditNote.css";
 import { useContext, useEffect, useState } from "react";
 import { getNoteById, updateNote, deleteNote } from "../../Firebase/userService";
 import { UserContext } from "../../context/userContext";
-import Loader from "../../components/loader/Loader"; // ✅ Import your loader component
+import Loader from "../../components/loader/Loader";
 
 export const EditNote = () => {
   const { setUserNotes, setEditNoteModal, selectedNoteId } = useContext(UserContext);
   const [note, setNote] = useState(null);
-  const [loading, setLoading] = useState(true); // ✅ Added loading state
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(true);
   const [animateOut, setAnimateOut] = useState(false);
+
 
   useEffect(() => {
     const fetchNote = async () => {
@@ -18,7 +20,7 @@ export const EditNote = () => {
       } catch (err) {
         console.error("Failed to fetch note:", err);
       } finally {
-        setLoading(false); // ✅ Loading ends after fetching
+        setLoading(false);
       }
     };
     fetchNote();
@@ -30,6 +32,9 @@ export const EditNote = () => {
   };
 
   const handleSave = async () => {
+    if (!note.title.trim()) return setError("Enter title")
+    if (!note.content.trim()) return setError("Write something")
+    setError("")
     await updateNote(selectedNoteId, note);
     alert("Note updated successfully!");
     setUserNotes((prev) =>
@@ -45,27 +50,24 @@ export const EditNote = () => {
     handleClose();
   };
 
-  // ✅ Loader while fetching
   if (loading) return <Loader />;
 
-  // ✅ If still no note after loading
   if (!note) return <p>Note not found.</p>;
 
   return (
-    <div
-      className={`modal-overlay ${animateOut ? "slide-out" : "slide-in"}`}
-      onClick={handleClose}
-    >
+    <div className={`modal-overlay ${animateOut ? "slide-out" : "slide-in"}`}
+      onClick={handleClose}>
       <div className="edit-note-container" onClick={(e) => e.stopPropagation()}>
-        <h2>Title</h2>
+        <h1 className="edit-note-title" >Edit your note</h1>
+        {error && <p className="error-message" >{error}</p>}
         <input
-          type="text"
           value={note.title}
+          placeholder="Note title"
           onChange={(e) => setNote({ ...note, title: e.target.value })}
         />
-        <h2>Content</h2>
         <textarea
           value={note.content}
+          placeholder="Write your note here"
           onChange={(e) => setNote({ ...note, content: e.target.value })}
         />
         <div className="button-group">

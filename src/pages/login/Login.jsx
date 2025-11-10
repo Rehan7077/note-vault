@@ -4,7 +4,6 @@ import { LoginPopup } from "../../components/loginPopup/LoginPopup";
 import { UserContext } from "../../context/userContext";
 
 export const Login = () => {
-  const { loading } = useContext(UserContext)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
